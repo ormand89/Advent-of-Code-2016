@@ -27,7 +27,7 @@ class Compass
   def move_left(steps_number)
     steps_number.times do 
       @sides.step_left(@current_position)
-      @history.update_history(@current_position) if @history.first_repeat == nil
+      @history.update_history(@current_position) if !(@history.first_repeat)
     end
     @sides = @sides.turn_left
   end
@@ -35,7 +35,7 @@ class Compass
   def move_right(steps_number)
     steps_number.times do 
       @sides.step_right(@current_position)
-      @history.update_history(@current_position) if @history.first_repeat == nil
+      @history.update_history(@current_position) if !(@history.first_repeat)
     end
     @sides = @sides.turn_right
   end
