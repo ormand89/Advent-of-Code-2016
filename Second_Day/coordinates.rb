@@ -39,7 +39,7 @@ class Coordinates
     end
   end
 
-  def get_coordinate
+  def get_coordinate # rename
     @matrix.get_element(@x_coordinate, @y_coordinate)
   end
 
