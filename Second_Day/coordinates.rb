@@ -2,25 +2,11 @@ require_relative 'matrix'
 
 class Coordinates
 
+include Matrix
+
   def initialize
     @x_coordinate = 1
     @y_coordinate = 3
-  end
-
-  def up
-    @y_coordinate -= 1 if Matrix.element_valid?(@x_coordinate, @y_coordinate - 1)
-  end
-
-  def down
-    @y_coordinate += 1 if Matrix.element_valid?(@x_coordinate, @y_coordinate + 1)
-  end
-
-  def right
-    @x_coordinate += 1 if Matrix.element_valid?(@x_coordinate + 1, @y_coordinate)
-  end
-
-  def left
-    @x_coordinate -= 1 if Matrix.element_valid?(@x_coordinate - 1, @y_coordinate)
   end
 
   def move(character)
@@ -37,7 +23,25 @@ class Coordinates
   end
 
   def coordinates # rename
-    Matrix.element(@x_coordinate, @y_coordinate)
+    element(@x_coordinate, @y_coordinate)
+  end
+
+  private
+
+  def up
+    @y_coordinate -= 1 if element_valid?(@x_coordinate, @y_coordinate - 1)
+  end
+
+  def down
+    @y_coordinate += 1 if element_valid?(@x_coordinate, @y_coordinate + 1)
+  end
+
+  def right
+    @x_coordinate += 1 if element_valid?(@x_coordinate + 1, @y_coordinate)
+  end
+
+  def left
+    @x_coordinate -= 1 if element_valid?(@x_coordinate - 1, @y_coordinate)
   end
 
 end
