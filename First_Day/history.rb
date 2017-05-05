@@ -1,27 +1,14 @@
-require 'singleton'
-
-# Rewrite history class logic. NEVER use classes in way like this.
-
 class History
 
-  @hashtable = {[0, 0].to_s => 1}
-  @exterminate = 0
-  @first_repeat = "absent"
+  attr_reader:first_repeat
 
-  def self.update_position(new_position)
-    if @exterminate == 0
-      if @hashtable.has_key?(new_position.to_s)
-        @first_repeat = new_position.to_s
-        @hashtable[new_position.to_s] = 1
-        @exterminate += 1
-      else
-        @hashtable[new_position.to_s] = 1
-      end
-    end
+  def initialize(startposition)
+    @hash = {startposition.to_s => 1}
+    @first_repeat = nil
   end
 
-  def self.get_first
-    puts @first_repeat
+  def update_history(new_position)
+    @hash.has_key?(new_position.to_s) ? @first_repeat = new_position : @hash[new_position.to_s] ||= 1
   end
-
+    
 end

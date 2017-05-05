@@ -1,17 +1,43 @@
+require_relative 'sides/north'
+require_relative 'history'
+
 class Compass
-  attr_accessor :sides, :current_position
 
-  def initialize
-    @current_position = [0, 0]
-    @sides = North
+  START_POSITION = [0, 0]
+  START_SIDE = North
+
+  def initialize(startposition = START_POSITION, startside = START_SIDE)
+    @current_position = startposition 
+    @sides = startside
+    @history = History.new(startposition)
   end
 
-  def turn_left(x)
-    @sides.turn_left(@current_position, x)
+  def move(turn)
+    steps_number = turn.scan(/\d+/).join.to_i
+    case turn[0] 
+      when 'L'
+        move_left(steps_number)
+      when 'R'
+        move_right(steps_number)
+      else
+        puts 'Wrong side'
+    end
   end
 
-  def turn_right(x)
-    @sides.turn_right(@current_position, x)
+  def move_left(steps_number)
+    steps_number.times do 
+      @sides.step_left(@current_position)
+      @history.update_history(@current_position) if !(@history.first_repeat)
+    end
+    @sides = @sides.turn_left
+  end
+
+  def move_right(steps_number)
+    steps_number.times do 
+      @sides.step_right(@current_position)
+      @history.update_history(@current_position) if !(@history.first_repeat)
+    end
+    @sides = @sides.turn_right
   end
 
 end

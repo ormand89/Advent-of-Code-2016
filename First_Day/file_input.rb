@@ -1,10 +1,13 @@
 class FileInput
-  def initialize
-    @file = File.open('task.txt')
+
+  FILE = 'task'
+
+  def initialize(fileinput = FILE)
+    @file = File.open(fileinput)
   end
 
-  def get_steps
-    @file.readline.split ", "
+  def steps
+    @file.readline.split(", ")
   end
 
 end
