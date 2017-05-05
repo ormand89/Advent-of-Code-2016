@@ -20,9 +20,10 @@ include Triangle
 
   private
 
-def go(file)
+  def go(file)
     file.each { |line| @triangles_counter += 1 if valid?(line) }
     @triangles_counter
   end
+  
 end
 
