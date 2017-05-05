@@ -1,5 +1,5 @@
 require_relative 'south'
-require_relative 'west'
+require_relative 'north'
 require_relative 'sides'
 
 class West < Sides

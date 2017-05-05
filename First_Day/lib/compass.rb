@@ -1,5 +1,8 @@
-require_relative 'sides/north'
-require_relative 'history'
+require 'sides/north'
+require 'sides/east'
+require 'sides/west'
+require 'sides/south'
+require 'history'
 
 class Compass
 
@@ -10,6 +13,11 @@ class Compass
     @current_position = startposition 
     @sides = startside
     @history = History.new(startposition)
+  end
+
+  def steps_from_start
+    a, b = *@current_position
+    a.abs + b.abs 
   end
 
   def move(turn)
@@ -23,6 +31,8 @@ class Compass
         puts 'Wrong side'
     end
   end
+
+  private
 
   def move_left(steps_number)
     steps_number.times do 
