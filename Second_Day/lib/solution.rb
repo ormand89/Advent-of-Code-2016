@@ -1,10 +1,10 @@
-require_relative 'file_input'
-require_relative 'coordinates'
+require 'file_input'
+require 'coordinates'
 
 class Solution # Rename class
 
   def initialize
-    @file = FileInput.new
+    @file = FileInput.new.steps
     @coordinate = Coordinates.new
     @code = []
   end
@@ -17,7 +17,7 @@ class Solution # Rename class
 
 private
   def make_steps
-    @file.steps.each do |line|
+    @file.each do |line|
       line.each_char {|character| @coordinate.move(character)}
       @code << @coordinate.coordinates
     end

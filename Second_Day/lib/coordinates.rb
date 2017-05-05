@@ -1,12 +1,12 @@
-require_relative 'matrix'
+require 'matrix'
 
 class Coordinates
 
 include Matrix
 
-  def initialize
-    @x_coordinate = 1
-    @y_coordinate = 3
+  def initialize(start_x = 1, start_y = 3)
+    @x_coordinate = start_x
+    @y_coordinate = start_y
   end
 
   def move(character)
