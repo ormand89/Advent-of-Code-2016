@@ -11,14 +11,14 @@ include Matrix
 
   def move(character)
     case character
-      when 'L'
-        left
-      when 'R'
-        right
-      when 'U'
-        up
-      when 'D'
-        down
+    when 'L'
+      left
+    when 'R'
+      right
+    when 'U'
+      up
+    when 'D'
+      down
     end
   end
 

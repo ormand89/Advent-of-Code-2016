@@ -24,6 +24,6 @@ include Triangle
     file.each { |line| @triangles_counter += 1 if valid?(line) }
     @triangles_counter
   end
-  
+
 end
 
