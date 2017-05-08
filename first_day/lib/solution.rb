@@ -1,18 +1,19 @@
 require 'file_input'
 require 'compass'
+require 'steps'
 
 class Solution
 
-  def initialize
-    @compass = Compass.new
-    @file = FileInput.new.steps
+  def initialize(steps = Steps.new.steps)
+    @steps = steps
   end
 
   def go
-    @file.each do |turn|
-    @compass.move(turn)
+    @compass = Compass.new(North, [0, 0])
+    @steps.each do |step|
+      @compass.move(*step)
     end
     @compass.steps_from_start
   end
-
 end
+

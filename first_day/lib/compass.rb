@@ -9,20 +9,14 @@ class Compass
   START_POSITION = [0, 0]
   START_SIDE = North
 
-  def initialize(startposition = START_POSITION, startside = START_SIDE)
-    @current_position = startposition 
-    @sides = startside
-    @history = History.new(startposition)
+  def initialize(start_side = START_SIDE, start_position = START_POSITION)
+    @current_position = start_position
+    @side = start_side
+    @history = History.new(start_position)
   end
 
-  def steps_from_start
-    a, b = *@current_position
-    a.abs + b.abs 
-  end
-
-  def move(turn)
-    steps_number = turn.scan(/\d+/).join.to_i
-    case turn[0] 
+  def move(side, steps_number)
+    case side
     when 'L'
       move_left(steps_number)
     when 'R'
@@ -32,22 +26,26 @@ class Compass
     end
   end
 
+  def steps_from_start
+    x_coordinate, y_coordinate = *@current_position
+    x_coordinate.abs + y_coordinate.abs
+  end
+
   private
 
   def move_left(steps_number)
-    steps_number.times do 
-      @sides.step_left(@current_position)
+    steps_number.times do
+      @side.step_left(@current_position)
       @history.update_history(@current_position) unless @history.first_repeat
     end
-    @sides = @sides.turn_left
+    @side = @side.turn_left
   end
 
   def move_right(steps_number)
-    steps_number.times do 
-      @sides.step_right(@current_position)
+    steps_number.times do
+      @side.step_right(@current_position)
       @history.update_history(@current_position) unless @history.first_repeat
     end
-    @sides = @sides.turn_right
+    @side = @side.turn_right
   end
-
 end

@@ -19,5 +19,4 @@ class West < Sides
   def self.turn_right
     North
   end
-
 end
