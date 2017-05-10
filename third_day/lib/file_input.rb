@@ -26,6 +26,5 @@ FILE = File.expand_path('task', File.dirname(__FILE__))
     end
     @input_task_raws
   end
-
 end
 

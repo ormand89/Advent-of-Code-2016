@@ -10,5 +10,4 @@ module Dictionary
     end
     checksum
   end
-
 end

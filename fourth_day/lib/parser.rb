@@ -1,10 +1,11 @@
 module Parser
 
-  def parametres(string)
+  def parameters(string)
     [] << id(string) << checksum(string) << room_name(string)
   end
 
   private
+
   def id(string)
     string.scan(/\d+/).join.to_i
   end
@@ -16,6 +17,5 @@ module Parser
   def room_name(string)
     string.gsub(/-\d{1,}\[.+\]/, "").gsub(/-/, "").to_s
   end
-
 end
 

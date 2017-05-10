@@ -12,5 +12,4 @@ FILE = File.expand_path('task', File.dirname(__FILE__))
     end
     lines
   end
-
 end

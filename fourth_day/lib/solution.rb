@@ -21,7 +21,7 @@ class Solution
   private
 
   def count_sum(string)
-    room = Room.new(parametres(string))
+    room = Room.new(parameters(string))
     @sum += room.id
     @id_encrypted ||= room.caesar_code
   end
