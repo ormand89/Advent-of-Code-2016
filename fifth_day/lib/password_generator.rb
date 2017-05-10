@@ -1,8 +1,8 @@
-require 'digest' 
+require 'digest'
 
 class PasswordGenerator
 
-  DOOR_ID = 'wtnhxymk' 
+  DOOR_ID = 'wtnhxymk'
   START_SYMBALS = '00000'
 
   def initialize(door_id = DOOR_ID)
@@ -11,7 +11,7 @@ class PasswordGenerator
   end
 
   def solve_first
-    password = '' 
+    password = ''
     while password.length < 8
       @integer_index += 1
       password += hash_code[5] if valid_hash?
@@ -20,7 +20,7 @@ class PasswordGenerator
   end
 
   def solve_second
-    password = '*' * 8 
+    password = '*' * 8
     while password.include?('*')
       @integer_index += 1
       if valid_hash?
@@ -44,7 +44,6 @@ class PasswordGenerator
   end
 
   def valid_position?(position)
-    (0..7).include?(position) 
+    (0..7).include?(position)
   end
-
 end

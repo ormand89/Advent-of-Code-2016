@@ -6,14 +6,14 @@ class Solution
 
   include Parser
 
-  def initialize
-    @file = FileInput.new.steps
+  def initialize(steps = FileInput.new.steps)
+    @steps = steps
     @sum = 0
   end
 
   def solve
-    @file.each do |line| 
-      count_sum(line)
+    @steps.each do |step|
+      count_sum(step)
     end
     [] << @sum << @id_encrypted
   end
@@ -25,6 +25,5 @@ class Solution
     @sum += room.id
     @id_encrypted ||= room.caesar_code
   end
-  
 end
 

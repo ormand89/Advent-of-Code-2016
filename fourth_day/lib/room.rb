@@ -23,5 +23,4 @@ class Room
   def real?
     count_checksum(@name) == @checksum
   end
-  
 end

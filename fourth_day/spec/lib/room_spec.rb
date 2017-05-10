@@ -2,10 +2,11 @@ require 'spec_helper'
 require 'room'
 
 RSpec.describe Room do
-  describe '#id' do    
+  describe '#id' do
     shared_examples 'check room id' do |parametres:, valid:|
       context "for #{parametres}" do
         subject(:room) { described_class.new(parametres) }
+
         it "should be #{valid}" do
           expect(subject.id).to eq(valid)
         end
@@ -16,10 +17,11 @@ RSpec.describe Room do
     include_examples 'check room id', parametres: [743, 'cnrdl', 'tyepcyletzylwncjzrpytnprropawzjxpye'], valid: 0
   end
 
-  describe '#caesar_code' do              
+  describe '#caesar_code' do
     shared_examples 'check encryption id' do |input:, valid:|
       context "for #{input}" do
-        subject(:room) { described_class.new(input) }   
+        subject(:room) { described_class.new(input) }
+
           it 'returns id if encryption correct' do
             expect(subject.caesar_code).to eq(valid)
           end
