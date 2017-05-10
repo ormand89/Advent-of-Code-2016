@@ -1,4 +1,4 @@
-require 'matrix'
+require_relative 'matrix'
 
 class Coordinates
 
