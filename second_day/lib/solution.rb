@@ -3,10 +3,8 @@ require 'coordinates'
 
 class Solution # Rename class
 
-  def initialize
-    @file = FileInput.new.steps
-    @coordinate = Coordinates.new
-    @code = []
+  def initialize(steps = FileInput.new.steps)
+    @steps = steps
   end
 
   # Decide which method should be called to fetch the code, hide other methods.
@@ -15,12 +13,14 @@ class Solution # Rename class
     @code # remove all puts from all the projects.
   end
 
-private
+  private
+
   def make_steps
-    @file.each do |line|
-      line.each_char {|character| @coordinate.move(character)}
-      @code << @coordinate.coordinates
+    @coordinates = Coordinates.new(1, 3)
+    @code = []
+    @steps.each do |line|
+      line.each_char {|character| @coordinates.move(character)}
+      @code << @coordinates.symbol
     end
   end
-
 end

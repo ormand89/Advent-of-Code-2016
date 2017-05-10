@@ -5,7 +5,6 @@ require 'sides/south'
 require 'history'
 
 class Compass
-
   START_POSITION = [0, 0]
   START_SIDE = North
 

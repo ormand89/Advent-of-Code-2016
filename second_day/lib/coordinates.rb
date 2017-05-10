@@ -2,7 +2,7 @@ require 'matrix'
 
 class Coordinates
 
-include Matrix
+  include Matrix
 
   def initialize(start_x = 1, start_y = 3)
     @x_coordinate = start_x
@@ -22,7 +22,7 @@ include Matrix
     end
   end
 
-  def coordinates # rename
+  def symbol # rename
     element(@x_coordinate, @y_coordinate)
   end
 
@@ -43,5 +43,4 @@ include Matrix
   def left
     @x_coordinate -= 1 if element_valid?(@x_coordinate - 1, @y_coordinate)
   end
-
 end

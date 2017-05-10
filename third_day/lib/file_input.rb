@@ -1,7 +1,7 @@
 class FileInput
 
 FILE = File.expand_path('task', File.dirname(__FILE__))
- 
+
   def initialize(fileinput = FILE)
     @file = File.open(fileinput)
     @input_task = []

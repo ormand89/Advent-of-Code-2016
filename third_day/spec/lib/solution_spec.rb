@@ -22,14 +22,14 @@ RSpec.describe Solution do
   end
 
   describe '#resolve_first' do
-    subject(:first) { described_class.new }   
+    subject(:first) { described_class.new }
     it 'should return correct result' do
       expect(subject.resolve_first).to eq(993)
     end
   end
 
   describe '#resolve_second' do
-    subject(:second) { described_class.new }   
+    subject(:second) { described_class.new }
     it 'should return correct result' do
       expect(subject.resolve_second).to eq(1849)
     end

@@ -7,10 +7,11 @@ RSpec.describe Solution do
     let(:expected_output) { 10 }
     subject(:code) { described_class.new(steps) }
 
-    it 'returns steps from start' do
+    it 'returns steps from start for input steps' do
       expect(subject.go).to eq(expected_output)
     end
-
+  end
+  describe '#go' do
     let(:expected_output) { 299 }
     subject(:code) { described_class.new }
 

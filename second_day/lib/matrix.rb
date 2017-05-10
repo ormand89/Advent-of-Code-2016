@@ -2,7 +2,6 @@
 # initialize method doesn't accept any params that vary class state
 
 module Matrix # Use correct class names!!
-
   MATRIX = [[0, 0, 0, 0, 0, 0, 0],
            [0, 0, 0, 1, 0, 0, 0],
            [0, 0, 2, 3, 4, 0, 0],
@@ -19,5 +18,4 @@ module Matrix # Use correct class names!!
   def element(x, y) #this method behaves like usual property. Use simple name without additional prefix 'get_'
     MATRIX[y][x]
   end
-
 end
