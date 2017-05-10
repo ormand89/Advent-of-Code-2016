@@ -18,8 +18,8 @@ class Solution # Rename class
   def make_steps
     @coordinates = Coordinates.new(1, 3)
     @code = []
-    @steps.each do |line|
-      line.each_char {|character| @coordinates.move(character)}
+    @steps.each do |step|
+      step.each_char {|character| @coordinates.move(character)}
       @code << @coordinates.symbol
     end
   end
