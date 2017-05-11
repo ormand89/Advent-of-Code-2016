@@ -3,20 +3,21 @@ require 'solution'
 
 RSpec.describe Solution do
   describe '#build_code' do
-    let(:steps) { ['RLRDDRLL', 'UDLDURR'] }
-    let(:expected_output) { ['A', 8] }
-    subject(:code) { described_class.new(steps) }
+    shared_examples 'check solution order' do |input:, expected_output:|
+      context "for #{input}" do
+        subject(:code) { described_class.new(input) }
 
-    it 'returns code for input steps' do
-      expect(subject.build_code).to eq(expected_output)
+        it 'returns code for input steps' do
+          expect(subject.build_code).to eq(expected_output)
+        end
+      end
     end
-  end
-  describe '#build_code' do #To solve the advantage
-    let(:expected_output) { [6, 7, 'B', 'B', 9] }
-    subject(:code) { described_class.new }
 
-    it 'returns code to solve advantage' do
-      expect(subject.build_code).to eq(expected_output)
-    end
+      include_examples 'check solution order', input: File.expand_path('../fixtures/task', File.dirname(__FILE__)),
+                                               expected_output: ['A', 8]
+      include_examples 'check solution order', input: File.expand_path('../../lib/task', File.dirname(__FILE__)),
+                                               expected_output: [6, 7, 'B', 'B', 9] #To solve the advantage
+
   end
 end
+

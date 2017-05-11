@@ -3,8 +3,9 @@ require 'coordinates'
 
 class Solution # Rename class
 
-  def initialize(steps = FileInput.new.steps)
-    @steps = steps
+  def initialize(file_name)
+    @file_name = file_name
+    @coordinates = Coordinates.new
   end
 
   # Decide which method should be called to fetch the code, hide other methods.
@@ -15,10 +16,13 @@ class Solution # Rename class
 
   private
 
+  def steps
+    @steps ||= FileInput.new(@file_name).steps
+  end
+
   def make_steps
-    @coordinates = Coordinates.new(1, 3)
     @code = []
-    @steps.each do |step|
+    steps.each do |step|
       step.each_char {|character| @coordinates.move(character)}
       @code << @coordinates.symbol
     end

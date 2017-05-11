@@ -1,9 +1,6 @@
 require_relative 'matrix'
 
 class Coordinates
-
-  extend Matrix
-
   def initialize(start_x = 1, start_y = 3)
     @x_coordinate = start_x
     @y_coordinate = start_y
