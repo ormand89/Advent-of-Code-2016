@@ -3,18 +3,18 @@ require 'room'
 
 RSpec.describe Room do
   describe '#id' do
-    shared_examples 'check room id' do |parametres:, valid:|
-      context "for #{parametres}" do
-        subject(:room) { described_class.new(parametres) }
+    shared_examples 'check room id' do |parameters:, id_for_real:|
+      context "for #{parameters}" do
+        subject(:room) { described_class.new(parameters) }
 
-        it "should be #{valid}" do
-          expect(subject.id).to eq(valid)
+        it "should be #{id_for_real}" do
+          expect(subject.id).to eq(id_for_real)
         end
       end
     end
-    include_examples 'check room id', parametres: [561, 'patyc', 'aczupnetwpdnlgpyrpcsfyedstaatyr'], valid: 561
-    include_examples 'check room id', parametres: [866, 'nymla', 'jsehsyafyvqwljsafafy'], valid: 0
-    include_examples 'check room id', parametres: [743, 'cnrdl', 'tyepcyletzylwncjzrpytnprropawzjxpye'], valid: 0
+    include_examples 'check room id', parameters: [561, 'patyc', 'aczupnetwpdnlgpyrpcsfyedstaatyr'], id_for_real: 561
+    include_examples 'check room id', parameters: [866, 'nymla', 'jsehsyafyvqwljsafafy'], id_for_real: 0
+    include_examples 'check room id', parameters: [743, 'cnrdl', 'tyepcyletzylwncjzrpytnprropawzjxpye'], id_for_real: 0
   end
 
   describe '#caesar_code' do

@@ -6,19 +6,23 @@ class Solution
 
   include Parser
 
-  def initialize(steps = FileInput.new.steps)
-    @steps = steps
+  def initialize(file_name)
+    @file_name = file_name
     @sum = 0
   end
 
-  def solve
-    @steps.each do |step|
-      count_sum(step)
+  def solve_problem
+    rooms.each do |room|
+      count_sum(room)
     end
     [] << @sum << @id_encrypted
   end
 
   private
+
+  def rooms
+    @rooms ||=FileInput.new(@file_name).rooms
+  end
 
   def count_sum(string)
     room = Room.new(parameters(string))

@@ -1,15 +1,15 @@
 class FileInput
-FILE =  ZFile.expand_path('task', File.dirname(__FILE__))
+  FILE = File.expand_path('task', File.dirname(__FILE__))
 
   def initialize(fileinput = FILE)
     @file = File.open(fileinput)
   end
 
-  def steps
-    lines = []
-    @file.readlines.each do |line|
-      lines << line.chop
+  def rooms
+    @rooms = []
+    @file.readlines.each do |room|
+      @rooms << room.rstrip
     end
-    lines
+    @rooms
   end
 end
