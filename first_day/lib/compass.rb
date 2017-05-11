@@ -5,21 +5,20 @@ require 'sides/south'
 require 'history'
 
 class Compass
-  START_POSITION = [0, 0]
   START_SIDE = North
 
-  def initialize(start_side = START_SIDE, start_position = START_POSITION)
-    @current_position = start_position
+  def initialize(start_side = START_SIDE)
+    @current_position = [0, 0]
     @side = start_side
-    @history = History.new(start_position)
+    @history = History.new(@current_position)
   end
 
-  def move(side, steps_number)
-    case side
+  def move(step)
+    case step.direction
     when 'L'
-      move_left(steps_number)
+      move_left(step.steps_count)
     when 'R'
-      move_right(steps_number)
+      move_right(step.steps_count)
     else
       puts 'Wrong side'
     end
