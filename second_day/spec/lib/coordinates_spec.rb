@@ -1,6 +1,6 @@
 require 'spec_helper'
 require 'coordinates'
-require 'matrix'
+
 
 RSpec.describe Coordinates do
   describe '#move' do

@@ -3,25 +3,29 @@ require 'triangle'
 
 class Solution
 
-include Triangle
+  include Triangle
 
-  def initialize(steps = FileInput.new)
-    @steps = steps
+  def initialize(file_name)
+    @file_name = file_name
     @triangles_counter = 0
   end
 
-  def resolve_first
-    go(@steps.steps)
+  def resolve_first_part
+    go(sides.sides_by_line)
   end
 
-  def resolve_second
-    go(@steps.steps_second)
+  def resolve_second_part
+    go(sides.sides_by_raw)
   end
 
   private
 
-  def go(steps)
-    steps.each { |step| @triangles_counter += 1 if valid?(step) }
+  def sides
+    @sides ||= FileInput.new(@file_name)
+  end
+
+  def go(triangle_sides_array)
+    triangle_sides_array.each { |triangle_sides| @triangles_counter += 1 if valid?(triangle_sides) }
     @triangles_counter
   end
 end

@@ -2,7 +2,6 @@ require 'file_input'
 require 'coordinates'
 
 class Solution # Rename class
-
   def initialize(file_name)
     @file_name = file_name
     @coordinates = Coordinates.new

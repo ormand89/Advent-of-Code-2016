@@ -1,30 +1,34 @@
 class FileInput
-FILE = File.expand_path('task', File.dirname(__FILE__))
+  FILE = File.expand_path('task', File.dirname(__FILE__))
 
-  def initialize(fileinput = FILE)
-    @file = File.open(fileinput)
-    @input_task = []
-    @input_task_raws = []
+  def initialize(file_input = FILE)
+    @file = File.open(file_input)
   end
 
-  def steps
+  def sides_by_line
+    @input_task = []
     @file.readlines.each do |line|
-      @input_task << line.strip.split(/\s{1,}/)
+      @input_task << line.strip.split(/\s{1,}/).map(&:to_i)
     end
     @input_task
   end
 
-  def steps_second
-    steps
+  def sides_by_raw
+    @input_task_raws = matrix_transpose(sides_by_line)
+  end
+
+  private
+
+  def matrix_transpose(array)
+    array_transposed = []
     3.times do |k|
-      @input_task_raws[k] = @input_task[k]
       i = 0
-      while i < (@input_task.size - 2)
-        @input_task_raws << [@input_task[i][k], @input_task[i + 1][k], @input_task[i + 2][k]]
+      while i < array.size
+        array_transposed << [array[i][k], array[i + 1][k], array[i + 2][k]]
         i += 3
       end
     end
-    @input_task_raws
+    array_transposed
   end
 end
 

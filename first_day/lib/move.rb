@@ -1,7 +1,4 @@
 class Move
-
-  attr_reader :direction, :steps_count
-
   def initialize(raw_step)
     @raw_step = raw_step
   end

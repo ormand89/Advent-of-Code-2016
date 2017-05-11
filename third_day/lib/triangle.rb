@@ -1,7 +1,7 @@
 module Triangle
 
-  def valid?(line)
-    a, b, c = line.map(&:to_i)
+  def valid?(triangle_sides)
+    a, b, c = *triangle_sides
     ((a + b > c) && (a + c > b) && (b + c > a))
   end
 end

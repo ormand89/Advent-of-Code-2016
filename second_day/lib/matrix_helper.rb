@@ -1,7 +1,7 @@
 # Those class does not have any state. That means that it should behave as simple class lib.
 # initialize method doesn't accept any params that vary class state
 
-module Matrix # Use correct class names!!
+class MatrixHelper # Use correct class names!!
   MATRIX = [[0, 0, 0, 0, 0, 0, 0],
            [0, 0, 0, 1, 0, 0, 0],
            [0, 0, 2, 3, 4, 0, 0],

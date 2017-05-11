@@ -3,7 +3,6 @@ require 'compass'
 require 'move'
 
 class Solution
-
   def initialize(file_name)
     @file_name = file_name
     @compass = Compass.new
