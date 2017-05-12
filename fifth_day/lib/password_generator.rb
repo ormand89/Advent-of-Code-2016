@@ -10,7 +10,7 @@ class PasswordGenerator
     @integer_index = 0
   end
 
-  def solve_first
+  def password_from_hash
     password = ''
     while password.length < 8
       @integer_index += 1
@@ -19,7 +19,7 @@ class PasswordGenerator
     password
   end
 
-  def solve_second
+  def password_from_hash_with_position
     password = '*' * 8
     while password.include?('*')
       @integer_index += 1

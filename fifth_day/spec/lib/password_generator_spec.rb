@@ -7,7 +7,7 @@ RSpec.describe PasswordGenerator do
     subject(:code) { described_class.new }
 
       it "returns code 2414bc77" do
-        expect(subject.solve_first).to eq('2414bc77')
+        expect(subject.password_from_hash).to eq('2414bc77')
       end
   end
 
@@ -15,7 +15,7 @@ RSpec.describe PasswordGenerator do
     subject(:code) { described_class.new }
 
       it "returns code 437e60fc" do
-        expect(subject.solve_second).to eq('437e60fc')
+        expect(subject.password_from_hash_with_position).to eq('437e60fc')
       end
   end
 end
