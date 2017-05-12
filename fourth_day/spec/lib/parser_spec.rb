@@ -1,13 +1,11 @@
 require 'spec_helper'
-require 'solution'
+require 'parser'
 
-#Test module Parser.parameters
-
-RSpec.describe Solution do
+RSpec.describe Parser do
   describe '#parameters' do
     shared_examples 'parsable' do |room:, id:, checksum:, room_name:|
       context "for #{room}" do
-        subject(:rooms) { described_class.new('Parser') }
+        subject(:room) { Object.new.extend(described_class) }
         it "returns #{id}, #{checksum}, #{room_name} after parsing" do
           expect(subject.parameters(room)).to eq([id, checksum, room_name])
         end
